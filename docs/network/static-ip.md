@@ -27,7 +27,7 @@
 |
  Raspberry Pi
 |
- TBD             
+ 192.168.178.11             
 |
 
 
@@ -46,6 +46,23 @@ Weryfikacja:
     ip route show default
     ping -c 3 8.8.8.8
 
+## Jak skonfigurowano Raspberry Pi
+
+Problem: po zmianie IP przez nmcli connection down/up, SSH 
+na nowy adres nie działało od razu — sieć potrzebowała 
+chwili na odświeżenie tablicy ARP. 
+Rozwiązanie: reboot Pi (sudo reboot) lub odczekanie ~1-2 minut.
+
+Komendy:
+
+    nmcli connection modify [nazwa profilu sieciowego] ipv4.addresses 192.168.178.11/24
+    nmcli connection modify [nazwa profilu sieciowego] ipv4.gateway 192.168.178.1
+    nmcli connection modify [nazwa profilu sieciowego] ipv4.dns "8.8.8.8 1.1.1.1"
+    nmcli connection modify [nazwa profilu sieciowego] ipv4.method manual
+    nmcli connection down [nazwa profilu sieciowego] && nmcli connection up [nazwa profilu sieciowego]
+    nmcli connection show - sprawdzenie profili sieciowych
+
+
 ## Status
 - [x] Ubuntu PC — 192.168.137.10 
-- [ ] Raspberry Pi — TBD
+- [x] Raspberry Pi — 192.168.178.11
