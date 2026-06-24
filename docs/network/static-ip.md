@@ -62,6 +62,15 @@ Komendy:
     nmcli connection down [nazwa profilu sieciowego] && nmcli connection up [nazwa profilu sieciowego]
     nmcli connection show - sprawdzenie profili sieciowych
 
+## Połączenie passwordless za pomocą ssh windows > PI
+
+Komendy:
+
+    ssh-keygen -t ed25519 -C "windows-homelab"
+    echo "key" ~/.ssh/authorized_keys
+    /etc/ssh/sshd_config - zmiana #PasswordAuthentication no
+    sudo systemctl restart ssh       
+    ssh -o PreferredAuthentications=password krysitan@192.168.178.11
 
 ## Status
 - [x] Ubuntu PC — 192.168.137.10 
