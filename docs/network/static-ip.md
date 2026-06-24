@@ -67,7 +67,7 @@ Komendy:
 Komendy:
 
     ssh-keygen -t ed25519 -C "windows-homelab"
-    echo "key" ~/.ssh/authorized_keys
+    echo "key" >> ~/.ssh/authorized_keys
     /etc/ssh/sshd_config - zmiana #PasswordAuthentication no
     sudo systemctl restart ssh       
     ssh -o PreferredAuthentications=password krysitan@192.168.178.11
