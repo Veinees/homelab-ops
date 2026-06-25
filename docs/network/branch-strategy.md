@@ -16,3 +16,7 @@
 ## Git rebase
 
 Osoba pracująca na main dodaje nowe zmiany, gdy nie chce mergować feature razem z main to mogę użyć git rebase i mam nowe zmiany u siebie, ale nadal pracuję na swoim feature branchu.
+
+## Wypnięcie nowego branch na GitHub
+
+git push --upstream origin /feature/gitea-setup
